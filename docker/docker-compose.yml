@@ -12,9 +12,10 @@ services:
         https_proxy: ${https_proxy:-}
         all_proxy: ${all_proxy:-}
         no_proxy: ${no_proxy:-}
-        FUTURECODER_LANGUAGE: ${FUTURECODER_LANGUAGE:-en}
-        FUTURECODER_LANGUAGES: ${FUTURECODER_LANGUAGES:-en}
-        REACT_APP_LANGUAGE: ${REACT_APP_LANGUAGE:-en}
+        FUTURECODER_LANGUAGE: ${FUTURECODER_LANGUAGE:-zh}
+        FUTURECODER_LANGUAGES: ${FUTURECODER_LANGUAGES:-zh}
+        REACT_APP_LANGUAGE: ${REACT_APP_LANGUAGE:-zh}
+        ALLOW_INCOMPLETE_TRANSLATIONS: ${ALLOW_INCOMPLETE_TRANSLATIONS:-1}
     container_name: futurecoder
     ports:
       - "3000:3000"
@@ -30,9 +31,10 @@ services:
       https_proxy: ${https_proxy:-}
       all_proxy: ${all_proxy:-}
       no_proxy: ${no_proxy:-}
-      FUTURECODER_LANGUAGE: ${FUTURECODER_LANGUAGE:-en}
-      FUTURECODER_LANGUAGES: ${FUTURECODER_LANGUAGES:-en}
-      REACT_APP_LANGUAGE: ${REACT_APP_LANGUAGE:-en}
+      FUTURECODER_LANGUAGE: ${FUTURECODER_LANGUAGE:-zh}
+      FUTURECODER_LANGUAGES: ${FUTURECODER_LANGUAGES:-zh}
+      REACT_APP_LANGUAGE: ${REACT_APP_LANGUAGE:-zh}
+      ALLOW_INCOMPLETE_TRANSLATIONS: ${ALLOW_INCOMPLETE_TRANSLATIONS:-1}
     volumes:
       - ..:/app
       - /app/frontend/node_modules

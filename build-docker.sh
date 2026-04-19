@@ -19,9 +19,9 @@ sync_proxy_var HTTPS_PROXY https_proxy
 sync_proxy_var ALL_PROXY all_proxy
 sync_proxy_var NO_PROXY no_proxy
 
-export FUTURECODER_LANGUAGE="${FUTURECODER_LANGUAGE:-en}"
+export FUTURECODER_LANGUAGE="${FUTURECODER_LANGUAGE:-zh}"
 export FUTURECODER_LANGUAGES="${FUTURECODER_LANGUAGES:-$FUTURECODER_LANGUAGE}"
 export REACT_APP_LANGUAGE="${REACT_APP_LANGUAGE:-$FUTURECODER_LANGUAGE}"
+export ALLOW_INCOMPLETE_TRANSLATIONS="${ALLOW_INCOMPLETE_TRANSLATIONS:-1}"
 
-docker compose -f docker/docker-compose.yml build
-docker compose -f docker/docker-compose.yml up
+docker compose -f docker/docker-compose.yml up --build

@@ -57,11 +57,13 @@ def get(msgid, default):
 
     result = translation.gettext(msgid)
     if result == msgid:
-        assert (
+        allow_missing = (
             msgid.startswith(("code_bits."))
             or "output_prediction_choices" in msgid
             or ".disallowed." in msgid
+            or os.environ.get("ALLOW_INCOMPLETE_TRANSLATIONS")
         )
+        assert allow_missing, f"Missing translation for {msgid} in {current_language}"
         return default
 
     if os.environ.get("CHECK_INLINE_CODES"):
