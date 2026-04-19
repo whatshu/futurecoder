@@ -1,0 +1,39 @@
+services:
+  futurecoder:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+        ALL_PROXY: ${ALL_PROXY:-}
+        NO_PROXY: ${NO_PROXY:-}
+        http_proxy: ${http_proxy:-}
+        https_proxy: ${https_proxy:-}
+        all_proxy: ${all_proxy:-}
+        no_proxy: ${no_proxy:-}
+        FUTURECODER_LANGUAGE: ${FUTURECODER_LANGUAGE:-en}
+        FUTURECODER_LANGUAGES: ${FUTURECODER_LANGUAGES:-en}
+        REACT_APP_LANGUAGE: ${REACT_APP_LANGUAGE:-en}
+    container_name: futurecoder
+    ports:
+      - "3000:3000"
+    environment:
+      HOST: 0.0.0.0
+      CHOKIDAR_USEPOLLING: "true"
+      WATCHPACK_POLLING: "true"
+      HTTP_PROXY: ${HTTP_PROXY:-}
+      HTTPS_PROXY: ${HTTPS_PROXY:-}
+      ALL_PROXY: ${ALL_PROXY:-}
+      NO_PROXY: ${NO_PROXY:-}
+      http_proxy: ${http_proxy:-}
+      https_proxy: ${https_proxy:-}
+      all_proxy: ${all_proxy:-}
+      no_proxy: ${no_proxy:-}
+      FUTURECODER_LANGUAGE: ${FUTURECODER_LANGUAGE:-en}
+      FUTURECODER_LANGUAGES: ${FUTURECODER_LANGUAGES:-en}
+      REACT_APP_LANGUAGE: ${REACT_APP_LANGUAGE:-en}
+    volumes:
+      - ..:/app
+      - /app/frontend/node_modules
+    working_dir: /app/frontend
